@@ -16,28 +16,6 @@ app.get("/", (req, res) => {
 });
 
 app.post("/run", (req, res) => {
-  var data = JSON.stringify({
-    code: req.body.code,
-    language: req.body.language,
-    input: req.body.input,
-  });
-  console.log(data);
-  
-  var config = {
-    method: "post",
-    url: "https://codexweb.netlify.app/.netlify/functions/enforceCode",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: data,
-  };
-
-  axios(config)
-    .then(function (response) {
-      console.log(response.data);
-      res.send(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  console.log(req.body.code);
+  res.send(req.body.code);
 });
