@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   res.send("Server set");
 });
 
-app.post("/run", (req, res) => {
+app.post("/runcode", (req, res) => {
   console.log(req.body.code);
   res.send(req.body.code);
 });
