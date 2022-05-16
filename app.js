@@ -11,5 +11,5 @@ app.use(express.json())
 app.use(cors());
 app.use("/user",user)
 app.get("/",(req,res)=>{
-    console.log("server set");
+    res.send("Server set");
 });
