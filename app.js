@@ -2,12 +2,13 @@ let express = require("express");
 let db = require("./configs/db");
 let user = require("./routes/user.js");
 let cors = require("cors");
+const bodyParser = require("body-parser");
 let app = express();
 let axios = require("axios");
 app.listen(process.env.PORT || 3000, function () {
   console.log("Server started on port 3000");
 });
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
 app.use("/user", user);
