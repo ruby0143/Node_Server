@@ -12,4 +12,5 @@ router.get("/jwt",token.verify,(req,res)=>{
 })
 
 
+
 module.exports=router
