@@ -1,7 +1,6 @@
 const express = require("express");
 let token=require("../middleware/tokenverify")
 let user=require("../controllers/user");
-const teacher = require("../models/teacher");
 let router = express.Router()
 router.post("/register",user.signup)
 router.post("/login",user.signin)
