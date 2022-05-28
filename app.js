@@ -61,7 +61,7 @@ const token = require('./middleware/tokenverify')
 mongoose.connect("mongodb+srv://ruby07:8074662205s@cluster0.97u8x.mongodb.net/hostelDb",{useNewUrlParser:true});
 // const schedule = require('node-schedule');
 const corsOptions ={
-  origin:'https://node-server-main.herokuapp.com', 
+  origin:'http://localhost:3000', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
