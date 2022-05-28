@@ -3,7 +3,9 @@ let user=require("../models/user")
 let jwt=require("jsonwebtoken")
 const bcrypt=require("bcrypt");
 let mongoose=require("mongoose")
+const question = require('../models/question')
 var axios = require('axios');
+const { enabled } = require("express/lib/application");
 let promise=global.Promise
 const tokenscret="mysecrete"
 function generatetoken(user){
@@ -72,8 +74,25 @@ let run=function(req,res)
     
     axios(config)
     .then(function (response) {
-      console.log(response.data);
-      res.send(response.data)
+      console.log(response.data.sourceCode);
+    //   res.send(response.data)
+      const output = response.data.output;
+      console.log(output)
+      if(output){
+          console.log(output)
+        //   question.findOne({question:req.body.question},{}).then(qn=>{
+        //       console.log(qn.expop);
+        //     if(qn.expop === output){
+        //         res.json({question : qn, message : "successfully executed"})
+        //     }
+        //     else{
+        //         res.send("wrong output");
+        //     }
+        //   })
+      }
+      else{
+          console.log(response.data.error);
+      }
     })
     .catch(function (error) {
       console.log(error);
@@ -81,3 +100,4 @@ let run=function(req,res)
 }
 
 module.exports={signup,signin,users,run}
+
