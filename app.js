@@ -60,11 +60,16 @@ let secrete="mysecrete";
 const token = require('./middleware/tokenverify')
 mongoose.connect("mongodb+srv://ruby07:8074662205s@cluster0.97u8x.mongodb.net/hostelDb",{useNewUrlParser:true});
 // const schedule = require('node-schedule');
+const corsOptions ={
+  origin:'https://node-server-main.herokuapp.com/', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
 
 let app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 var bf=0;
 var lunch=0;
